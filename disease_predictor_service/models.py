@@ -11,7 +11,6 @@ class DiabetesPredictionInput(BaseModel):
     Age: int
 
     class Config:
-        # Example to show in API docs
         json_schema_extra = {
             "example": {
                 "Pregnancies": 6,
