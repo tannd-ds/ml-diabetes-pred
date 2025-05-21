@@ -7,8 +7,8 @@ class Patient(BaseModel):
     patient_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     date_of_birth: date
 
-    created_at: datetime = Field(default_factory=datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     class Config:
         from_attributes = True # For ORM integration
@@ -37,8 +37,8 @@ class HealthRecord(BaseModel):
     
     data: HealthRecordData
 
-    created_at: datetime = Field(default_factory=datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     class Config:
         from_attributes = True # For ORM integration
