@@ -5,7 +5,11 @@ import contextlib
 from datetime import datetime, timezone
 from dateutil.relativedelta import relativedelta # For age calculation
 
-from models import Patient as PatientPydantic, HealthRecord as HealthRecordPydantic, HealthRecordData
+from models import (
+    Patient as PatientPydantic, 
+    HealthRecord as HealthRecordPydantic, 
+    HealthRecordData, 
+)
 from database import create_db_tables, get_async_db_session
 import crud
 
