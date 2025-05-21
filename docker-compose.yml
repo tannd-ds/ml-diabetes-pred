@@ -1,4 +1,14 @@
 services:
+
+  frontend_service:
+    build: ./frontend_service
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./frontend_service:/app
+    networks:
+      - app_network
+
   data_management_service:
     build: ./data_management_service
     ports:
