@@ -42,3 +42,4 @@ class HealthRecord(BaseModel):
 
     class Config:
         from_attributes = True # For ORM integration
+

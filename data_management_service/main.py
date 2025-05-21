@@ -5,7 +5,11 @@ import contextlib
 from datetime import datetime, timezone
 from dateutil.relativedelta import relativedelta # For age calculation
 
-from models import Patient as PatientPydantic, HealthRecord as HealthRecordPydantic, HealthRecordData
+from models import (
+    Patient as PatientPydantic, 
+    HealthRecord as HealthRecordPydantic, 
+    HealthRecordData, 
+)
 from database import create_db_tables, get_async_db_session
 import crud
 
@@ -119,6 +123,13 @@ async def get_diabetes_training_dataset(db: AsyncSession = Depends(get_async_db_
         
     if not training_data:
         pass # Returning empty list if no data
+    else:
+        # NOTE: This is for DEV purposes only.
+        if len(training_data) < 5:
+            print("Loading diabetes.csv file as training data...")
+            import pandas as pd
+            df = pd.read_csv("data/diabetes.csv")
+            training_data = df.to_dict(orient="records")
 
     return training_data
 
